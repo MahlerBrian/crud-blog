@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     res.json(BlogPosts.get());
 });
 
-router.post('/blog-posts', jsonParser, (req, res) => {
+router.post('/', jsonParser, (req, res) => {
     const requiredFields = ['title', 'content', 'author', 'date'];
     for (let i=0; i<requiredFields.length; i++) {
         const field = requiredFields[i];
@@ -35,13 +35,13 @@ router.post('/blog-posts', jsonParser, (req, res) => {
     res.status(201).json(item);
 });
 
-router.delete('/blog-posts/:id', (req,res) => {
+router.delete('/:id', (req,res) => {
     BlogPosts.delete(req.params.id);
     console.log(`Deleted blog entry \`${req.params.ID}\``);
     res.status(204).end();
 });
 
-router.put('/blog-posts/:id', jsonParser, (req, res) => {
+router.put('/:id', jsonParser, (req, res) => {
     const requiredFields = ['title', 'content', 'author', 'date'];
     for (let i=0; i<requiredFields.length; i++) {
         const field = requiredFields[i];
