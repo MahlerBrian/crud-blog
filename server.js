@@ -23,7 +23,7 @@ app.use('/blog-posts/:id', blogPostRouter);
 let server; 
 
 // start server and return Promise
-function runserver() {
+function runServer() {
   const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
     server = app
